@@ -1,0 +1,14 @@
+Backend Notes
+////////////////////////////////////////////////
+          Lesson 3 - Routes & Controllers
+///////////////////////////////////////////////
+
+- Routes: These define request end points
+- Controllers: These define the logic that happens 
+when a route is hit
+
+- All defined routes in the routes directory must be registered 
+ in server.js  e.g
+
+        app.use('/api/users', userRoutes) //all routes starting with 'api/users
+        will be handled in userRoutes

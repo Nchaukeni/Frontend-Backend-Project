@@ -1,0 +1,15 @@
+{
+  "name": "backend-lessons",
+  "version": "1.0.0",
+  "description": "backend lessons to sort out ZedSchool backend programming",
+  "license": "ISC",
+  "author": "Nchaukeni",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
