@@ -3,7 +3,7 @@ import {
   subjects,
   getSubjectById,
   addSubject,
-} from "../Controllers/subjectControllers.js";
+} from "../Controllers/lesson4SubjectControllers.js";
 const router = express.Router();
 
 router.get("/", subjects);
