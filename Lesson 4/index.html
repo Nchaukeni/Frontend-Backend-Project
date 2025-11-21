@@ -2,6 +2,109 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Lesson 4 backend lesson</title>
+    <title>Lesson 4 Backend Lesson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CDN (quick setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
+
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-4xl bg-white shadow-xl rounded-xl p-8 space-y-10">
+      <!-- Add User Form -->
+      <div class="border-b pb-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Add User</h2>
+
+        <form id="add-user-form" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700"
+              >First Name</label
+            >
+            <input
+              id="userName"
+              type="text"
+              placeholder="First name"
+              class="mt-1 w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label for="sirname" class="block text-sm font-medium text-gray-700"
+              >Last Name</label
+            >
+            <input
+              id="sirname-text"
+              type="text"
+              placeholder="Last name"
+              class="mt-1 w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700"
+              >Select your sex</label
+            >
+            <select
+              class="mt-1 w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              id="user-sex"
+            >
+              <option>Sex</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+          >
+            Submit
+          </button>
+          <div id="addUserResults"></div>
+        </form>
+      </div>
+
+      <!-- Check Users Form -->
+      <div class="border-b pb-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Check Users</h2>
+
+        <form id="check-all-users">
+          <button
+            id="check-for-all-users"
+            type="submit"
+            class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+          >
+            Check Users
+          </button>
+        </form>
+      </div>
+
+      <!-- Check User by ID -->
+      <div>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Check User By ID</h2>
+
+        <form id="check-user-by-id" class="space-y-4">
+          <div>
+            <label for="userId" class="block text-sm font-medium text-gray-700"
+              >Enter User ID</label
+            >
+            <input
+              id="userId"
+              type="number"
+              placeholder="ID number"
+              class="mt-1 w-full p-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <button
+            class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition"
+          >
+            Check User
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
