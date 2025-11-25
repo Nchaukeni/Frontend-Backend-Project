@@ -1,13 +1,19 @@
+console.log("JavaScript loaded");
 const mainContainer = document.querySelector(".main-container");
-const addUserForm = document.getElementById("add-user-form");
+const addUserForm = document.getElementById("addUserForm");
 const checkUsersForm = document.getElementById("check-all-users");
 const checkUserById = document.getElementById("check-user-by-id");
-const firstName = document.getElementById("userName");
-const lastName = document.getElementById("sirname-text");
-const userSex = document.getElementById("user-sex");
-const userId = document.getElementById("userId");
 
-addUserForm.addEventListener("submit", async () => {
+const userId = document.getElementById("userId").value;
+const addUserResults = document.getElementById("addUserResults");
+
+addUserForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const firstName = document.getElementById("userName").value;
+  const lastName = document.getElementById("sirnameText").value;
+  const userSex = document.getElementById("userSex").value;
+  console.log("Add user event triggered");
+  console.log("user: " + firstName + " " + lastName);
   try {
     const res = await fetch("/api/user/", {
       method: "POST",
@@ -15,5 +21,8 @@ addUserForm.addEventListener("submit", async () => {
       body: JSON.stringify({ firstName, lastName, userSex }),
     });
     const data = await res.json();
-  } catch (error) {}
+    data.innerHTML = `<p class="addUserResults"> ${data.message} </p>`;
+  } catch (error) {
+    addUserResults.innerHTML = `<p class="addUserResults">404 <strong>ERROR</strong>, No established connection</p>`;
+  }
 });

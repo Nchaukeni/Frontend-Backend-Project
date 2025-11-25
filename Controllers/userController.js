@@ -24,22 +24,28 @@ export async function getUserById(req, res) {
 }
 
 export async function createUser(req, res) {
-  const { name, sirname, sex, role } = req.body;
-  if (!name || !role) {
+  const { firstName, lastName, userSex } = req.body;
+  if (!firstName || !userSex) {
     return res
       .status(400)
-      .json({ success: false, message: "Name and role required" });
+      .json({ success: false, message: "Name and sex required" });
   }
+  //Debugging statement
+  console.log("Backend says hi " + firstName + " " + lastName + " " + userSex);
   try {
     const newUserId = (await User.countDocuments()) + 1;
     const newUser = new User({
       userId: newUserId,
-      username: name,
-      lastname: sirname,
-      sex: sex,
-      role: role,
+      username: firstName,
+      lastname: lastName,
+      sex: userSex,
     });
     await newUser.save();
+    console.log("User has been created");
+    res.status(200).json({
+      success: true,
+      message: `${firstName} ${lastName} has been created`,
+    });
   } catch (error) {
     res.status(404).json({ success: false, message: error.message });
   }
