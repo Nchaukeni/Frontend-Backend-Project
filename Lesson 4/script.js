@@ -12,8 +12,10 @@ addUserForm.addEventListener("submit", async (e) => {
   const firstName = document.getElementById("userName").value;
   const lastName = document.getElementById("sirnameText").value;
   const userSex = document.getElementById("userSex").value;
+  ///Debugging statements
   console.log("Add user event triggered");
   console.log("user: " + firstName + " " + lastName);
+  //////////////////////////////////
   try {
     const res = await fetch("/api/user/", {
       method: "POST",
